@@ -1,2 +1,2 @@
 # Terraform
-![](images/diagram-0.drawio.png)
+![](images/image-1.png)
