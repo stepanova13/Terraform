@@ -1,2 +1,2 @@
 # Terraform
-![](images/image-1.png)
+![](images/image0.png)
