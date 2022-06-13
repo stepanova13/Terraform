@@ -19,7 +19,6 @@ resource "aws_instance" "amazon_linux_2_server" {
   instance_type        = "t2.micro"
   availability_zone    = "us-west-2b"
   key_name             = "oregon-key-pair"
-  iam_instance_profile = "ec2-to-ssm-full-access"
   tags = {
     "Name" = ":) Hello Terraform World"
   }
