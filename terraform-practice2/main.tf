@@ -13,7 +13,7 @@ data "aws_ami" "amazon_linux_2_ami" {
 data "aws_region" "current" {}
 
 # RESOURCES
-# Deploy an EC2 instance using Amazon Linux 2 in default VPC in availability zone us-west-2b.
+# Deploy an EC2 instance using Amazon Linux 2 in default VPC 
 resource "aws_instance" "amazon_linux_2_server" {
   ami = data.aws_ami.amazon_linux_2_ami.id # Reference the data source "aws_ami" attribute - id
   #  instance_type          = var.instance_type                  # Reference the value of the variable specified
