@@ -49,19 +49,19 @@ resource "aws_security_group" "sg_rds_ssh_http" {
   }
 
   ingress {
-    description = "Allows SSH traffic"
-    from_port   = 22
-    to_port     = 22
+    description = var.ssh_description
+    from_port   = var.ssh_port
+    to_port     = var.ssh_port
     protocol    = "tcp"
     cidr_blocks = [var.ssh_cidr]
   }
 
   ingress {
-    description = "Allows HTTP traffic"
-    from_port   = 80
-    to_port     = 80
+    description = var.http_description
+    from_port   = var.http_port
+    to_port     = var.http_port
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = [var.http_cidr_blocks]
   }
 
   egress {
@@ -72,7 +72,7 @@ resource "aws_security_group" "sg_rds_ssh_http" {
   }
 
   tags = {
-    Name = "allow_rds_ssh_http"
+    (var.sg_tags[0]) = var.sg_tags[1]
   }
 }
 

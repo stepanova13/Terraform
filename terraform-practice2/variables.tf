@@ -68,5 +68,36 @@ variable "sg_description" {
 }
 
 variable "sg_name" {
-  type = string
+  description = "the name of the sg"
+  type        = string
+}
+
+variable "sg_tags" {
+  description = "tags for the sg"
+  type        = list(any)
+}
+
+variable "ssh_port" {
+  description = "ssh port"
+  type        = number
+}
+
+variable "ssh_description" {
+  description = "ssh description"
+  type        = string
+}
+
+variable "http_description" {
+  description = "http desctiprion"
+  type        = string
+}
+
+variable "http_port" {
+  description = "http port"
+  type        = number
+}
+
+variable "http_cidr_blocks" {
+  description = "http cidr blocks"
+  type        = string
 }
