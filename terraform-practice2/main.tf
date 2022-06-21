@@ -1,5 +1,5 @@
 
-# DATE SOURCES
+# DATA SOURCES
 data "aws_ami" "amazon_linux_2_ami" {
   most_recent = true
   owners      = ["amazon"]
