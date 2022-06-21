@@ -34,6 +34,7 @@ variable "ssh_cidr" {
 variable "rds_cidr" {
   description = "the cidr block for rds"
   type        = string
+
 }
 
 variable "vpc_cidr" {
@@ -55,4 +56,17 @@ variable "ec2_tags" {
 variable "vpc_tags" {
   description = "vpc tags"
   type        = list(any)
+}
+
+variable "rds_ingress_description" {
+  description = "rds ingress"
+  type        = string
+}
+
+variable "sg_description" {
+  type = string
+}
+
+variable "sg_name" {
+  type = string
 }

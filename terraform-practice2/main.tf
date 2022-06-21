@@ -13,7 +13,7 @@ data "aws_ami" "amazon_linux_2_ami" {
 data "aws_region" "current" {}
 
 # RESOURCES
-# Deploy an EC2 instance using Amazon Linux 2 in default VPC
+# Deploy an EC2 instance using Amazon Linux 2 in default VPC 
 resource "aws_instance" "amazon_linux_2_server" {
   ami = data.aws_ami.amazon_linux_2_ami.id # Reference the data source "aws_ami" attribute - id
   #  instance_type          = var.instance_type                  # Reference the value of the variable specified
@@ -27,7 +27,7 @@ resource "aws_instance" "amazon_linux_2_server" {
   }
 }
 
-# Create a VPC resource 
+# Create a VPC resource
 resource "aws_vpc" "_vpc_" {
   cidr_block = var.vpc_cidr
   tags = {
@@ -37,11 +37,11 @@ resource "aws_vpc" "_vpc_" {
 
 # Create a security group
 resource "aws_security_group" "sg_rds_ssh_http" {
-  name        = "allow_rds_ssh_http"
-  description = "Allow RDS,SSH,HTTP inbound traffic"
+  name        = var.sg_name
+  description = var.sg_description
 
   ingress {
-    description = "Allows RDS traffic"
+    description = var.rds_ingress_description
     from_port   = var.rds_port
     to_port     = var.rds_port
     protocol    = "tcp"
