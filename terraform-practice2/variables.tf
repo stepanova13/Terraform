@@ -33,15 +33,13 @@ variable "ssh_cidr" {
 
 variable "rds_cidr" {
   description = "the cidr block for rds"
-  type = string
 }
 
 variable "vpc_cidr" {
   description = "the cidr of the vpc"
-  type = string
 }
 
 variable "rds_port" {
   description = "the port for RDS"
-  type = number
 }
+
