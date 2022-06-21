@@ -43,8 +43,8 @@ resource "aws_security_group" "sg_rds_ssh_http" {
 
   ingress {
     description = "Allows RDS traffic"
-    from_port   = 3306
-    to_port     = 3306
+    from_port   = var.rds_port
+    to_port     = var.rds_port
     protocol    = "tcp"
     cidr_blocks = [var.rds_cidr]
   }
