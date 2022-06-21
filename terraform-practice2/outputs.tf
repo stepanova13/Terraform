@@ -8,6 +8,6 @@ output "server_public_dns" {
   value = aws_instance.amazon_linux_2_server.public_dns
 }
 
-output "name" {
+output "sg_id" {
   value = aws_security_group.sg_rds_ssh_http.vpc_id
 }
