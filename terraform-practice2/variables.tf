@@ -34,7 +34,6 @@ variable "ssh_cidr" {
 variable "rds_cidr" {
   description = "the cidr block for rds"
   type        = string
-
 }
 
 variable "vpc_cidr" {
