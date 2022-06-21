@@ -28,7 +28,7 @@ resource "aws_instance" "amazon_linux_2_server" {
 }
 
 # Create a VPC resource 
-resource "aws_vpc" "oregon_vpc" {
+resource "aws_vpc" "_vpc_" {
   cidr_block = var.vpc_cidr
   tags = {
     (var.vpc_tags[0]) = var.vpc_tags[1]

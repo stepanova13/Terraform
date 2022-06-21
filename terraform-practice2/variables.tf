@@ -54,5 +54,5 @@ variable "ec2_tags" {
 
 variable "vpc_tags" {
   description = "vpc tags"
-  type = list
+  type        = list(any)
 }
