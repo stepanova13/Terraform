@@ -44,7 +44,7 @@ resource "aws_security_group" "sg_rds_ssh_http" {
     description = var.rds_ingress_description
     from_port   = var.rds_port
     to_port     = var.rds_port
-    protocol    = "tcp"
+    protocol    = var.protocol
     cidr_blocks = [var.rds_cidr]
   }
 
@@ -52,7 +52,7 @@ resource "aws_security_group" "sg_rds_ssh_http" {
     description = var.ssh_description
     from_port   = var.ssh_port
     to_port     = var.ssh_port
-    protocol    = "tcp"
+    protocol    = var.protocol
     cidr_blocks = [var.ssh_cidr]
   }
 
@@ -60,7 +60,7 @@ resource "aws_security_group" "sg_rds_ssh_http" {
     description = var.http_description
     from_port   = var.http_port
     to_port     = var.http_port
-    protocol    = "tcp"
+    protocol    = var.protocol
     cidr_blocks = [var.http_cidr_blocks]
   }
 

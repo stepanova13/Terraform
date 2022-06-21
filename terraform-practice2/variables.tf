@@ -101,3 +101,8 @@ variable "http_cidr_blocks" {
   description = "http cidr blocks"
   type        = string
 }
+
+variable "protocol" {
+  description = "protocol"
+  type        = string
+}
