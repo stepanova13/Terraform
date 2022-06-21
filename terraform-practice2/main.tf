@@ -22,8 +22,8 @@ resource "aws_instance" "amazon_linux_2_server" {
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.sg_rds_ssh_http.id]
   tags = {
-    "Region:" = data.aws_region.current.name
-    "AZ:"     = var.availability_zone
+    (var.ec2_tags[0]) = data.aws_region.current.name
+    (var.ec2_tags[1]) = var.availability_zone
   }
 }
 

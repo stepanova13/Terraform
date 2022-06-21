@@ -47,3 +47,8 @@ variable "rds_port" {
   type        = number
 }
 
+# create a list
+variable "ec2_tags" {
+  description = "ec2 tags"
+  type        = list(any)
+}
