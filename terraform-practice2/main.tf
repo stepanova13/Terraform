@@ -28,7 +28,7 @@ resource "aws_instance" "amazon_linux_2_server" {
   }
 }
 
-# Create a VPC resource in us-west-2.
+# Create a VPC resource 
 resource "aws_vpc" "oregon_vpc" {
   cidr_block = var.vpc_cidr
   tags = {
