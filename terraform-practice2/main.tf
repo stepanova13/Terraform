@@ -13,20 +13,21 @@ data "aws_ami" "amazon_linux_2_ami" {
 data "aws_region" "current" {}
 
 # RESOURCES
-# Deploy an EC2 instance using Amazon Linux 2 in default VPC 
+# Deploy an EC2 instance using Amazon Linux 2 in default VPC in availability zone us-west-2b.
 resource "aws_instance" "amazon_linux_2_server" {
   ami = data.aws_ami.amazon_linux_2_ami.id # Reference the data source "aws_ami" attribute - id
-  instance_type = var.ec2_types["dev"] # reference a map
+  #  instance_type          = var.instance_type                  # Reference the value of the variable specified
+  instance_type          = var.ec2_types["dev"] # reference a map
   availability_zone      = var.availability_zone
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.sg_rds_ssh_http.id]
   tags = {
-    "Region:" = data.aws_region.current.name
-    "AZ:"     = var.availability_zone
+    var.ec2_tags[0] = data.aws_region.current.name
+    var.ec2_tags[1] = var.availability_zone
   }
 }
 
-# Create a VPC resource 
+# Create a VPC resource 10.123.0.0/16 in us-west-2.
 resource "aws_vpc" "oregon_vpc" {
   cidr_block = var.vpc_cidr
   tags = {
@@ -34,7 +35,7 @@ resource "aws_vpc" "oregon_vpc" {
   }
 }
 
-# Create a security group 
+# Create a security group to allow 3306, 22, 80 traffic
 resource "aws_security_group" "sg_rds_ssh_http" {
   name        = "allow_rds_ssh_http"
   description = "Allow RDS,SSH,HTTP inbound traffic"
