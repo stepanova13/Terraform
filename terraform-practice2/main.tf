@@ -36,7 +36,7 @@ resource "aws_vpc" "oregon_vpc" {
   }
 }
 
-# Create a security group to allow 3306, 22, 80 traffic
+# Create a security group 
 resource "aws_security_group" "sg_rds_ssh_http" {
   name        = "allow_rds_ssh_http"
   description = "Allow RDS,SSH,HTTP inbound traffic"
