@@ -31,7 +31,7 @@ resource "aws_instance" "amazon_linux_2_server" {
 resource "aws_vpc" "oregon_vpc" {
   cidr_block = var.vpc_cidr
   tags = {
-    "Name" = "Terraform VPC"
+    (var.vpc_tags[0]) = var.vpc_tags[1]
   }
 }
 
