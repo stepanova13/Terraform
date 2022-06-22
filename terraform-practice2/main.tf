@@ -12,7 +12,7 @@ data "aws_ami" "amazon_linux_2_ami" {
 
 data "aws_region" "current" {}
 
-data "aws_availability_zone" "oregon-b" {
+data "aws_availability_zone" "the_az" {
   name = var.availability_zone
 }
 
@@ -23,12 +23,12 @@ resource "aws_instance" "amazon_linux_2_server" {
   #  instance_type          = var.instance_type                  # Reference the value of the variable specified
   instance_type = var.ec2_types["dev"] # reference a map
   # availability_zone      = var.availability_zone
-  availability_zone      = data.aws_availability_zone.oregon-b.name
+  availability_zone      = data.aws_availability_zone.the_az.name
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.sg_rds_ssh_http.id]
   tags = {
     (var.ec2_tags[0]) = data.aws_region.current.name
-    (var.ec2_tags[1]) = data.aws_availability_zone.oregon-b.name
+    (var.ec2_tags[1]) = data.aws_availability_zone.the_az.name
   }
 }
 
