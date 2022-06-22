@@ -13,7 +13,7 @@ data "aws_ami" "amazon_linux_2_ami" {
 data "aws_region" "current" {}
 
 data "aws_availability_zone" "oregon-b" {
-  name = "us-west-2b"
+  name = var.availability_zone
 }
 
 # RESOURCES
